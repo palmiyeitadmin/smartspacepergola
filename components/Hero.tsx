@@ -11,7 +11,7 @@ export default function Hero() {
       {/* Full-width background product image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-pergola.png"
+          src="/images/Hero Section BG-web.jpg"
           alt="Smart Space Pergola"
           fill
           className="object-cover"

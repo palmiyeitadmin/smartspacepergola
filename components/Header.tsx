@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ShoppingCart, User, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
@@ -27,13 +28,15 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
         <div>
-          <Link href="/" className="flex flex-col">
-            <span className="font-display text-xl font-extrabold text-gray-900 tracking-tight leading-none">
-              Smart Space Pergola
-            </span>
-            <span className="font-sans text-[11px] text-gray-400 font-medium tracking-wide mt-1">
-              Powered by Palmiye
-            </span>
+          <Link href="/">
+            <Image
+              src="/images/Artboard 2 copy.png"
+              alt="Smart Space Pergola"
+              width={180}
+              height={50}
+              className="h-[42px] w-auto"
+              priority
+            />
           </Link>
         </div>
 
