@@ -4,12 +4,15 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 export default function Configurator() {
   const [size, setSize] = useState("family");
   const [color, setColor] = useState("black");
   const [ctrl, setCtrl] = useState("manual");
   const [zip, setZip] = useState(false);
+  const [added, setAdded] = useState(false);
+  const { addItem } = useCart();
 
   const colors = [
     { id: "black", label: "Black", hex: "#1a1a1a" },
@@ -214,8 +217,22 @@ export default function Configurator() {
               </div>
             </div>
 
-            <Button className="w-full h-auto py-3.5 bg-brand-orange hover:bg-brand-orange-hover text-white rounded-lg mt-5 font-sans text-[14.5px] font-bold shadow-[0_4px_14px_rgba(232,96,10,0.25)] transition-all">
-              🛒 Add to Cart
+            <Button
+              onClick={() => {
+                addItem({
+                  id: "",
+                  size: cur.label,
+                  color: curColor.label,
+                  control: ctrl === "motorized" ? "Motorized" : "Manual",
+                  zipScreen: zip,
+                  price: subtotal,
+                });
+                setAdded(true);
+                setTimeout(() => setAdded(false), 2000);
+              }}
+              className="w-full h-auto py-3.5 bg-brand-orange hover:bg-brand-orange-hover text-white rounded-lg mt-5 font-sans text-[14.5px] font-bold shadow-[0_4px_14px_rgba(232,96,10,0.25)] transition-all"
+            >
+              {added ? "✓ Added to Cart!" : "🛒 Add to Cart"}
             </Button>
 
             <div className="mt-4.5 space-y-1.5">
