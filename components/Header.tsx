@@ -16,7 +16,12 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = ["Shop by Size", "Upgrades", "Our Story", "Support/FAQ"];
+  const navLinks = [
+    { label: "Shop by Size", href: "#sizes" },
+    { label: "Upgrades", href: "#configurator" },
+    { label: "Our Story", href: "#" },
+    { label: "Support/FAQ", href: "#" },
+  ];
 
   return (
     <header
@@ -44,11 +49,11 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-7">
           {navLinks.map((link) => (
             <Link
-              key={link}
-              href="#"
+              key={link.label}
+              href={link.href}
               className="font-sans text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors"
             >
-              {link}
+              {link.label}
             </Link>
           ))}
         </nav>
@@ -79,11 +84,11 @@ export default function Header() {
               <div className="flex flex-col gap-6 mt-10">
                 {navLinks.map((link) => (
                   <Link
-                    key={link}
-                    href="#"
+                    key={link.label}
+                    href={link.href}
                     className="text-lg font-medium text-gray-700 hover:text-gray-900"
                   >
-                    {link}
+                    {link.label}
                   </Link>
                 ))}
                 <div className="h-px bg-gray-200 my-2" />

@@ -71,7 +71,7 @@ function SizeCard({ p }: { p: Product }) {
 
 export default function SizeSection() {
   return (
-    <section className="py-16 md:py-20 px-6 bg-gray-50">
+    <section className="py-16 md:py-20 px-6 bg-gray-50" id="sizes">
       <div className="max-w-7xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
