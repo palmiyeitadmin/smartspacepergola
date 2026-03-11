@@ -1,11 +1,18 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="bg-surface-dark pt-14 px-6 pb-6 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10 mb-10">
           <div>
-            <div className="font-display text-lg font-extrabold text-white mb-1">Smart Space Pergola</div>
-            <div className="font-sans text-[11px] text-brand-orange font-semibold mb-3">Powered by Palmiye</div>
+            <Image
+              src="/images/Artboard 2.png"
+              alt="Smart Space Pergola"
+              width={180}
+              height={50}
+              className="h-[42px] w-auto mb-3"
+            />
             <p className="font-sans text-[13px] text-white/40 leading-relaxed max-w-[260px] mb-4">
               The intelligent outdoor solution with patented L-shaped pillar design. Get 15% more usable space.
             </p>

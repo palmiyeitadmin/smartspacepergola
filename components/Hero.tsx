@@ -53,21 +53,7 @@ export default function Hero() {
             </Button>
           </a>
 
-          <div className="flex flex-wrap gap-5 mt-8">
-            {[
-              { icon: "🇩🇪", t: "German Design" },
-              { icon: "🏭", t: "Powered by Palmiye" },
-              { icon: "⚡", t: "Quick Installation" },
-            ].map((b) => (
-              <div
-                key={b.t}
-                className="flex items-center gap-1.5 font-sans text-[12.5px] text-white/60 font-medium"
-              >
-                <span className="text-sm">{b.icon}</span>
-                {b.t}
-              </div>
-            ))}
-          </div>
+
         </motion.div>
       </div>
     </section>
