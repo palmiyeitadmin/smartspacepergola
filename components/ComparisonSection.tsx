@@ -36,19 +36,16 @@ export default function ComparisonSection() {
               <div className="absolute top-3.5 right-3.5 w-6 h-6 rounded-full bg-red-50 text-danger flex items-center justify-center text-[13px] font-extrabold">
                 ✕
               </div>
-              <h3 className="font-display text-base font-bold text-gray-900 mb-4.5">Standard Pergola</h3>
-              <div className="bg-danger/5 border-2 border-dashed border-danger/20 rounded-xl p-7 mb-4.5 relative">
-                {[{ top: 8, left: 8 }, { top: 8, right: 8 }, { bottom: 8, left: 8 }, { bottom: 8, right: 8 }].map((pos, i) => (
-                  <div key={i} className="absolute w-2 h-2 rounded-sm bg-danger/35" style={pos} />
-                ))}
-                <div className="w-[80%] mx-auto aspect-5/3 bg-danger/10 rounded-lg border-[1.5px] border-danger/20 flex flex-col items-center justify-center">
-                  <div className="font-sans text-[11px] text-gray-400 mb-1">Usable Area</div>
-                  <div className="font-display text-[32px] font-extrabold text-danger leading-none">85%</div>
-                </div>
-              </div>
+              <h3 className="font-display text-base font-bold text-gray-900 mb-4">Standard Pergola</h3>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/karsilastirma2.svg"
+                alt="Standard Pergola - 85% usable area"
+                className="w-full object-contain mb-4 transition-transform duration-300 hover:scale-105"
+              />
               {["Pillars occupy interior corners", "Limited space in corners", "Need larger size for same comfort"].map((t) => (
                 <div key={t} className="flex gap-2 mb-2 font-sans text-[13px] text-gray-500 leading-snug items-start">
-                  <span className="text-danger ext-[11px] mt-px shrink-0">✕</span>
+                  <span className="text-danger text-[11px] mt-px shrink-0">✕</span>
                   {t}
                 </div>
               ))}
@@ -67,13 +64,13 @@ export default function ComparisonSection() {
               <div className="absolute -top-3 right-4.5 bg-success text-white px-3 py-1 rounded-full font-sans text-[11px] font-bold">
                 +15% Space
               </div>
-              <h3 className="font-display text-base font-bold text-gray-900 mb-4.5">Smart Space Pergola</h3>
-              <div className="bg-success/5 border-2 border-solid border-success/20 rounded-xl p-7 mb-4.5">
-                <div className="w-full aspect-5/3 bg-success/10 rounded-lg border-[1.5px] border-success/20 flex flex-col items-center justify-center">
-                  <div className="font-sans text-[11px] text-gray-400 mb-1">Usable Area</div>
-                  <div className="font-display text-[32px] font-extrabold text-success leading-none">100%</div>
-                </div>
-              </div>
+              <h3 className="font-display text-base font-bold text-gray-900 mb-4">Smart Space Pergola</h3>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/karsilastirma1.svg"
+                alt="Smart Space Pergola - 100% usable area"
+                className="w-full object-contain mb-4 transition-transform duration-300 hover:scale-105"
+              />
               {["L-shaped pillars extend outside", "Full corner utilization", "15% more usable space"].map((t) => (
                 <div key={t} className="flex gap-2 mb-2 font-sans text-[13px] text-gray-500 leading-snug items-start">
                   <span className="text-success text-sm shrink-0 leading-none">✓</span>
