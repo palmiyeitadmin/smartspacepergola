@@ -7,8 +7,16 @@ import { Check } from "lucide-react";
 
 export default function Configurator() {
   const [size, setSize] = useState("family");
+  const [color, setColor] = useState("black");
   const [ctrl, setCtrl] = useState("manual");
   const [zip, setZip] = useState(false);
+
+  const colors = [
+    { id: "black", label: "Black", hex: "#1a1a1a" },
+    { id: "white", label: "White", hex: "#f5f5f5" },
+    { id: "brown", label: "Brown", hex: "#8B572A" },
+  ];
+  const curColor = colors.find((c) => c.id === color) || colors[0];
 
   const sizes = [
     { id:"balcony", label:"Balcony Size (200×200 cm)", price:2490 },
@@ -77,10 +85,39 @@ export default function Configurator() {
               </div>
             </div>
 
-            {/* Step 2 */}
+            {/* Step 2 - Color */}
             <div className="mb-8">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-[26px] h-[26px] rounded-full bg-brand-orange text-white flex items-center justify-center font-sans text-[13px] font-bold">2</div>
+                <h3 className="font-display text-base font-bold text-gray-900 m-0">Choose Color</h3>
+              </div>
+              <div className="flex items-center gap-4">
+                {colors.map((c) => (
+                  <button
+                    key={c.id}
+                    onClick={() => setColor(c.id)}
+                    className="flex flex-col items-center gap-2 group"
+                  >
+                    <div
+                      className={`w-10 h-10 rounded-full border-2 transition-all duration-200 ${
+                        color === c.id
+                          ? "border-brand-orange scale-110 shadow-[0_0_0_3px_rgba(232,96,10,0.2)]"
+                          : "border-gray-300 hover:border-gray-400"
+                      }`}
+                      style={{ backgroundColor: c.hex }}
+                    />
+                    <span className={`font-sans text-[11px] font-medium transition-colors ${
+                      color === c.id ? "text-brand-orange font-bold" : "text-gray-500"
+                    }`}>{c.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Step 3 - Control Type */}
+            <div className="mb-8">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-[26px] h-[26px] rounded-full bg-brand-orange text-white flex items-center justify-center font-sans text-[13px] font-bold">3</div>
                 <h3 className="font-display text-base font-bold text-gray-900 m-0">Select Control Type</h3>
               </div>
               <div className="grid sm:grid-cols-2 gap-3">
@@ -106,10 +143,10 @@ export default function Configurator() {
               </div>
             </div>
 
-            {/* Step 3 */}
+            {/* Step 4 - Upgrades */}
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-[26px] h-[26px] rounded-full bg-brand-orange text-white flex items-center justify-center font-sans text-[13px] font-bold">3</div>
+                <div className="w-[26px] h-[26px] rounded-full bg-brand-orange text-white flex items-center justify-center font-sans text-[13px] font-bold">4</div>
                 <h3 className="font-display text-base font-bold text-gray-900 m-0">Add Optional Upgrades</h3>
               </div>
               <button
@@ -155,7 +192,7 @@ export default function Configurator() {
                 <span className="text-white/65">{cur.label}</span>
                 <span className="font-semibold">€{cur.price.toLocaleString()}</span>
               </div>
-              <div className="font-sans text-[11px] text-white/35">Base pergola</div>
+              <div className="font-sans text-[11px] text-white/35">Base pergola · {curColor.label}</div>
             </div>
             {motorCost > 0 && (
               <div className="flex justify-between font-sans text-[13px] text-white/60 mb-1.5 px-1">
