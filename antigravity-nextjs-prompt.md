@@ -103,7 +103,7 @@ colors: {
   - Product image (pergola photo, aspect-ratio 4:3)
   - Green "Save 15%" badge on image
   - Product name (e.g., "Balcony Size")
-  - Price in orange (e.g., "€2,490") + strikethrough old price
+  - Price in orange (e.g., "€2,290") + strikethrough old price
   - Green "You save €XXX" text
   - Dimensions + short description
   - "What fits inside:" bullet list with orange dots
@@ -113,7 +113,7 @@ colors: {
   **Products data:**
   | Name | Price | Old Price | Save | Dimensions | Description |
   |------|-------|-----------|------|------------|-------------|
-  | Balcony Size | €2,490 | €2,929 | €439 | 200×200 cm | Perfect for small balconies and compact spaces |
+  | Balcony Size | €2,290 | €2,929 | €439 | 200×200 cm | Perfect for small balconies and compact spaces |
   | Dining Size | €3,290 | €3,870 | €580 | 250×300 cm | Fits a 4-6 person outdoor dining room for family meals |
   | Family Size | €3,990 | €4,694 | €704 | 300×400 cm | The outdoor living room for the whole family |
   | Lounge Size | €4,990 | €5,870 | €880 | 400×500 cm | Premium full-size relaxation and entertainment space |

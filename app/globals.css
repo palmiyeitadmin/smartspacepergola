@@ -140,3 +140,21 @@
     @apply font-sans;
   }
 }
+
+/* Best Sale badge subtle pulse */
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(232, 96, 10, 0.35);
+  }
+  50% {
+    opacity: 0.92;
+    transform: scale(1.04);
+    box-shadow: 0 4px 14px rgba(232, 96, 10, 0.5);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2.5s ease-in-out infinite;
+}

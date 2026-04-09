@@ -5,10 +5,10 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 const products = [
-  { name: "Balcony Size", price: 2490, old: 2929, save: 439, dim: "250x250 cm", desc: "Perfect for small balconies and compact spaces", fits: ["Lounge chair", "Small coffee table", "Side plants"], pct: "Save 15%", image: "/images/balcony_1.jpg" },
-  { name: "Dining Size", price: 3290, old: 3870, save: 580, dim: "250×300 cm", desc: "Fits a 4-6 person outdoor dining room for family meals", fits: ["4-6 person dining table", "A shelf", "Side wall bench"], pct: "Save 15%", image: "/images/dining_1.jpg" },
-  { name: "Family Size", price: 3990, old: 4694, save: 704, dim: "300×300 cm", desc: "The outdoor living room for the whole family", fits: ["Corner L-shaped sofa", "Coffee table", "Bookcase / cabinet"], pct: "Save 15%", image: "/images/family_1.jpeg" },
-  { name: "Lounge Size", price: 4990, old: 5870, save: 880, dim: "300×400 cm", desc: "Premium full-size relaxation and entertainment space", fits: ["Lounge set", "Sunbed(s)", "Outdoor kitchen area"], pct: "Save 15%", image: "/images/lounge_1.png" },
+  { name: "Balcony Size", price: 1490, old: 2290, save: 800, dim: "250x250 cm", desc: "Perfect for small balconies and compact spaces", fits: ["Lounge chair", "Small coffee table", "Side plants"], pct: "Save 30%", image: "/images/balcony_1.jpg", bestSale: false },
+  { name: "Dining Size", price: 1790, old: 2750, save: 960, dim: "250×300 cm", desc: "Fits a 4-6 person outdoor dining room for family meals", fits: ["4-6 person dining table", "A shelf", "Side wall bench"], pct: "Save 30%", image: "/images/dining_1.jpg", bestSale: false },
+  { name: "Family Size", price: 2149, old: 3300, save: 1151, dim: "300×300 cm", desc: "The outdoor living room for the whole family", fits: ["Corner L-shaped sofa", "Coffee table", "Bookcase / cabinet"], pct: "Save 30%", image: "/images/family_1.jpeg", bestSale: true },
+  { name: "Lounge Size", price: 2890, old: 4450, save: 1560, dim: "300×400 cm", desc: "Premium full-size relaxation and entertainment space", fits: ["Lounge set", "Sunbed(s)", "Outdoor kitchen area"], pct: "Save 30%", image: "/images/lounge_1.png", bestSale: false },
 ];
 
 type Product = {
@@ -21,11 +21,16 @@ type Product = {
   fits: string[];
   pct: string;
   image: string;
+  bestSale: boolean;
 };
 
 function SizeCard({ p }: { p: Product }) {
   return (
-    <div className="group bg-white rounded-[14px] overflow-hidden border border-gray-200 hover:border-brand-orange/35 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.07)] shadow-[0_1px_4px_rgba(0,0,0,0.03)] flex flex-col h-full text-left">
+    <div className={`group bg-white rounded-[14px] overflow-hidden border transition-all duration-300 hover:-translate-y-1 flex flex-col h-full text-left ${
+      p.bestSale
+        ? "border-brand-orange/40 shadow-[0_4px_20px_rgba(232,96,10,0.13)] hover:shadow-[0_12px_36px_rgba(232,96,10,0.18)] ring-1 ring-brand-orange/10"
+        : "border-gray-200 hover:border-brand-orange/35 hover:shadow-[0_12px_32px_rgba(0,0,0,0.07)] shadow-[0_1px_4px_rgba(0,0,0,0.03)]"
+    }`}>
       <div className="aspect-4/3 relative overflow-hidden">
         <Image
           src={p.image}
@@ -33,8 +38,24 @@ function SizeCard({ p }: { p: Product }) {
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
-        <div className="absolute top-2 right-2 bg-success text-white px-2.5 py-1 rounded-md font-sans text-[10.5px] font-bold z-10">
-          {p.pct}
+        {/* Subtle gradient overlay for depth */}
+        {p.bestSale && (
+          <div className="absolute inset-0 bg-linear-to-t from-black/15 via-transparent to-transparent z-1" />
+        )}
+        {/* Badge container */}
+        <div className="absolute top-2 left-2 right-2 flex items-start justify-between z-10">
+          {/* Best Sale badge - left side */}
+          {p.bestSale ? (
+            <div className="animate-pulse-subtle bg-linear-to-r from-brand-orange to-brand-orange-light text-white px-2.5 py-1 rounded-md font-sans text-[10.5px] font-bold shadow-[0_2px_8px_rgba(232,96,10,0.35)] flex items-center gap-1">
+              🔥 Best Sale
+            </div>
+          ) : (
+            <div />
+          )}
+          {/* Save % badge - right side */}
+          <div className="bg-success text-white px-2.5 py-1 rounded-md font-sans text-[10.5px] font-bold">
+            {p.pct}
+          </div>
         </div>
       </div>
       <div className="p-4 pt-4 flex-1 flex flex-col">

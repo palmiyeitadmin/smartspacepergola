@@ -109,7 +109,7 @@ function Header() {
               fontFamily: font, fontSize: 14, fontWeight: 500, color: C.gray500,
               textDecoration: "none", transition: "color 0.2s",
             }} onMouseEnter={e => e.target.style.color = C.gray900}
-               onMouseLeave={e => e.target.style.color = C.gray500}>{l}</a>
+              onMouseLeave={e => e.target.style.color = C.gray500}>{l}</a>
           ))}
         </nav>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
@@ -121,7 +121,7 @@ function Header() {
             fontSize: 13, fontWeight: 700, cursor: "pointer",
             boxShadow: `0 2px 8px ${C.orange}40`, transition: "all 0.2s",
           }} onMouseEnter={e => e.target.style.background = C.orangeHover}
-             onMouseLeave={e => e.target.style.background = C.orange}>Configure & Buy</button>
+            onMouseLeave={e => e.target.style.background = C.orange}>Configure & Buy</button>
         </div>
       </div>
     </header>
@@ -144,22 +144,22 @@ function Hero() {
       }}>
         <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", opacity: 0.15 }}>
           <svg width="350" height="240" viewBox="0 0 350 240" fill="none">
-            <rect x="25" y="50" width="300" height="6" rx="3" fill="white"/>
-            <rect x="35" y="56" width="6" height="150" rx="3" fill="white"/>
-            <rect x="309" y="56" width="6" height="150" rx="3" fill="white"/>
-            <rect x="25" y="30" width="300" height="6" rx="3" fill="white" opacity="0.6"/>
-            {Array.from({length: 9}, (_, i) => (
-              <rect key={i} x={45 + i * 32} y="30" width="4" height="20" rx="1.5" fill="white" opacity="0.4"/>
+            <rect x="25" y="50" width="300" height="6" rx="3" fill="white" />
+            <rect x="35" y="56" width="6" height="150" rx="3" fill="white" />
+            <rect x="309" y="56" width="6" height="150" rx="3" fill="white" />
+            <rect x="25" y="30" width="300" height="6" rx="3" fill="white" opacity="0.6" />
+            {Array.from({ length: 9 }, (_, i) => (
+              <rect key={i} x={45 + i * 32} y="30" width="4" height="20" rx="1.5" fill="white" opacity="0.4" />
             ))}
-            {Array.from({length: 10}, (_, i) => (
-              <rect key={i} x="41" y={36 + i * 3} width="268" height="2" rx="1" fill="white" opacity="0.12"/>
+            {Array.from({ length: 10 }, (_, i) => (
+              <rect key={i} x="41" y={36 + i * 3} width="268" height="2" rx="1" fill="white" opacity="0.12" />
             ))}
           </svg>
         </div>
         <div style={{
           position: "absolute", bottom: 0, left: 0, right: 0, height: "40%",
           background: "linear-gradient(to top, rgba(34,70,40,0.2), transparent)",
-        }}/>
+        }} />
       </div>
 
       <div style={{
@@ -185,8 +185,8 @@ function Hero() {
             fontWeight: 800, lineHeight: 1.13, color: C.white,
             letterSpacing: "-0.03em", margin: "0 0 18px 0",
           }}>
-            Use your budget in a<br/>
-            <span style={{ color: C.orange }}>perfect way</span>.<br/>
+            Use your budget in a<br />
+            <span style={{ color: C.orange }}>perfect way</span>.<br />
             Buy smaller, live larger.
           </h1>
 
@@ -207,7 +207,7 @@ function Hero() {
             fontSize: 14.5, fontWeight: 700, cursor: "pointer",
             boxShadow: `0 4px 16px ${C.orange}45`, transition: "all 0.25s",
           }} onMouseEnter={e => { e.target.style.background = C.orangeHover; e.target.style.transform = "translateY(-1px)"; }}
-             onMouseLeave={e => { e.target.style.background = C.orange; e.target.style.transform = "translateY(0)"; }}>
+            onMouseLeave={e => { e.target.style.background = C.orange; e.target.style.transform = "translateY(0)"; }}>
             Configure & Buy Now
           </button>
 
@@ -273,8 +273,8 @@ function Comparison() {
                 background: `${C.red}06`, border: `2px dashed ${C.red}22`,
                 borderRadius: 12, padding: "28px 20px", marginBottom: 18, position: "relative",
               }}>
-                {[{t:8,l:8},{t:8,r:8},{b:8,l:8},{b:8,r:8}].map((p,i) => (
-                  <div key={i} style={{ position:"absolute", width:8, height:8, borderRadius:2, background:`${C.red}35`, ...p }} />
+                {[{ t: 8, l: 8 }, { t: 8, r: 8 }, { b: 8, l: 8 }, { b: 8, r: 8 }].map((p, i) => (
+                  <div key={i} style={{ position: "absolute", width: 8, height: 8, borderRadius: 2, background: `${C.red}35`, ...p }} />
                 ))}
                 <div style={{
                   width: "80%", margin: "0 auto", aspectRatio: "5/3",
@@ -285,9 +285,9 @@ function Comparison() {
                   <div style={{ fontFamily: fontDisplay, fontSize: 32, fontWeight: 800, color: C.red }}>85%</div>
                 </div>
               </div>
-              {["Pillars occupy interior corners","Limited space in corners","Need larger size for same comfort"].map(t => (
-                <div key={t} style={{ display:"flex", gap:7, marginBottom:7, fontFamily:font, fontSize:13, color:C.gray500, lineHeight:1.4, alignItems:"flex-start" }}>
-                  <span style={{ color:C.red, fontSize:11, marginTop:2, flexShrink:0 }}>✕</span>{t}
+              {["Pillars occupy interior corners", "Limited space in corners", "Need larger size for same comfort"].map(t => (
+                <div key={t} style={{ display: "flex", gap: 7, marginBottom: 7, fontFamily: font, fontSize: 13, color: C.gray500, lineHeight: 1.4, alignItems: "flex-start" }}>
+                  <span style={{ color: C.red, fontSize: 11, marginTop: 2, flexShrink: 0 }}>✕</span>{t}
                 </div>
               ))}
             </div>
@@ -318,9 +318,9 @@ function Comparison() {
                   <div style={{ fontFamily: fontDisplay, fontSize: 32, fontWeight: 800, color: C.green }}>100%</div>
                 </div>
               </div>
-              {["L-shaped pillars extend outside","Full corner utilization","15% more usable space"].map(t => (
-                <div key={t} style={{ display:"flex", gap:7, marginBottom:7, fontFamily:font, fontSize:13, color:C.gray500, lineHeight:1.4, alignItems:"flex-start" }}>
-                  <span style={{ color:C.green, fontSize:14, flexShrink:0 }}>✓</span>{t}
+              {["L-shaped pillars extend outside", "Full corner utilization", "15% more usable space"].map(t => (
+                <div key={t} style={{ display: "flex", gap: 7, marginBottom: 7, fontFamily: font, fontSize: 13, color: C.gray500, lineHeight: 1.4, alignItems: "flex-start" }}>
+                  <span style={{ color: C.green, fontSize: 14, flexShrink: 0 }}>✓</span>{t}
                 </div>
               ))}
             </div>
@@ -347,10 +347,10 @@ function Comparison() {
 
 /* ── 5. SIZES ──────────────────────────────────────────────────── */
 const products = [
-  { name:"Balcony Size", price:2490, old:2929, save:439, dim:"200×200 cm", desc:"Perfect for small balconies and compact spaces", fits:["Lounge chair","Small coffee table","Side plants"], pct:"Save 15%" },
-  { name:"Dining Size", price:3290, old:3870, save:580, dim:"250×300 cm", desc:"Fits a 4-6 person outdoor dining room for family meals", fits:["4-6 person dining table","A shelf","Side wall bench"], pct:"Save 15%" },
-  { name:"Family Size", price:3990, old:4694, save:704, dim:"300×400 cm", desc:"The outdoor living room for the whole family", fits:["Corner L-shaped sofa","Coffee table","Bookcase / cabinet"], pct:"Save 15%" },
-  { name:"Lounge Size", price:4990, old:5870, save:880, dim:"400×500 cm", desc:"Premium full-size relaxation and entertainment space", fits:["Lounge set","Sunbed(s)","Outdoor kitchen area"], pct:"Save 15%" },
+  { name: "Balcony Size", price: 1490, old: 2290, save: 800, dim: "250×250 cm", desc: "Perfect for small balconies and compact spaces", fits: ["Lounge chair", "Small coffee table", "Side plants"], pct: "Save 15%" },
+  { name: "Dining Size", price: 1790, old: 2750, save: 960, dim: "250×300 cm", desc: "Fits a 4-6 person outdoor dining room for family meals", fits: ["4-6 person dining table", "A shelf", "Side wall bench"], pct: "Save 15%" },
+  { name: "Family Size", price: 2149, old: 3300, save: 1151, dim: "300×400 cm", desc: "The outdoor living room for the whole family", fits: ["Corner L-shaped sofa", "Coffee table", "Bookcase / cabinet"], pct: "Save 15%" },
+  { name: "Lounge Size", price: 2890, old: 4450, save: 1560, dim: "400×500 cm", desc: "Premium full-size relaxation and entertainment space", fits: ["Lounge set", "Sunbed(s)", "Outdoor kitchen area"], pct: "Save 15%" },
 ];
 
 function SizeCard({ p }) {
@@ -358,7 +358,7 @@ function SizeCard({ p }) {
   return (
     <div onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)} style={{
       background: C.white, borderRadius: 14, overflow: "hidden",
-      border: `1px solid ${h ? C.orange+"35" : C.gray200}`,
+      border: `1px solid ${h ? C.orange + "35" : C.gray200}`,
       transition: "all 0.3s", transform: h ? "translateY(-4px)" : "translateY(0)",
       boxShadow: h ? "0 12px 32px rgba(0,0,0,0.07)" : "0 1px 4px rgba(0,0,0,0.03)",
     }}>
@@ -368,10 +368,10 @@ function SizeCard({ p }) {
         display: "flex", alignItems: "center", justifyContent: "center",
       }}>
         <svg width="90" height="65" viewBox="0 0 90 65" fill="none" opacity="0.25">
-          <rect x="5" y="12" width="80" height="4" rx="2" fill="#5a5040"/>
-          <rect x="10" y="16" width="3" height="42" rx="1.5" fill="#5a5040"/>
-          <rect x="77" y="16" width="3" height="42" rx="1.5" fill="#5a5040"/>
-          <rect x="5" y="4" width="80" height="3" rx="1.5" fill="#5a5040" opacity="0.5"/>
+          <rect x="5" y="12" width="80" height="4" rx="2" fill="#5a5040" />
+          <rect x="10" y="16" width="3" height="42" rx="1.5" fill="#5a5040" />
+          <rect x="77" y="16" width="3" height="42" rx="1.5" fill="#5a5040" />
+          <rect x="5" y="4" width="80" height="3" rx="1.5" fill="#5a5040" opacity="0.5" />
         </svg>
         <div style={{
           position: "absolute", top: 8, right: 8, background: C.green, color: C.white,
@@ -400,7 +400,7 @@ function SizeCard({ p }) {
           fontFamily: font, fontSize: 12.5, fontWeight: 600, color: C.gray500,
           cursor: "pointer", marginBottom: 8, transition: "all 0.2s",
         }} onMouseEnter={e => { e.target.style.borderColor = C.orange; e.target.style.color = C.orange; }}
-           onMouseLeave={e => { e.target.style.borderColor = C.gray200; e.target.style.color = C.gray500; }}>
+          onMouseLeave={e => { e.target.style.borderColor = C.gray200; e.target.style.color = C.gray500; }}>
           📐 View Floor Plan
         </button>
         <button style={{
@@ -409,7 +409,7 @@ function SizeCard({ p }) {
           color: C.white, cursor: "pointer", transition: "all 0.2s",
           boxShadow: `0 2px 8px ${C.orange}28`,
         }} onMouseEnter={e => e.target.style.background = C.orangeHover}
-           onMouseLeave={e => e.target.style.background = C.orange}>Select Options</button>
+          onMouseLeave={e => e.target.style.background = C.orange}>Select Options</button>
       </div>
     </div>
   );
@@ -452,10 +452,10 @@ function Configurator() {
   const [zip, setZip] = useState(false);
 
   const sizes = [
-    { id:"balcony", label:"Balcony Size (200×200 cm)", price:2490 },
-    { id:"dining", label:"Dining Size (250×300 cm)", price:3290 },
-    { id:"family", label:"Family Size (300×400 cm)", price:3990 },
-    { id:"lounge", label:"Lounge Size (400×500 cm)", price:4990 },
+    { id: "balcony", label: "Balcony Size (250×250 cm)", price: 1490 },
+    { id: "dining", label: "Dining Size (250×300 cm)", price: 1790 },
+    { id: "family", label: "Family Size (300×400 cm)", price: 2149 },
+    { id: "lounge", label: "Lounge Size (300×400 cm)", price: 2890 },
   ];
   const cur = sizes.find(s => s.id === size);
   const motorCost = ctrl === "motorized" ? 650 : 0;
@@ -490,7 +490,7 @@ function Configurator() {
               {/* Step 1 */}
               <div style={{ marginBottom: 28 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
-                  <div style={{ width:26, height:26, borderRadius:"50%", background:C.orange, color:C.white, display:"flex", alignItems:"center", justifyContent:"center", fontFamily:font, fontSize:13, fontWeight:700 }}>1</div>
+                  <div style={{ width: 26, height: 26, borderRadius: "50%", background: C.orange, color: C.white, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: font, fontSize: 13, fontWeight: 700 }}>1</div>
                   <h3 style={{ fontFamily: fontDisplay, fontSize: 16, fontWeight: 700, color: C.gray900, margin: 0 }}>Choose Your Size</h3>
                 </div>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
@@ -501,7 +501,7 @@ function Configurator() {
                       borderRadius: 10, padding: "11px 14px", cursor: "pointer", textAlign: "left",
                       transition: "all 0.2s", position: "relative",
                     }}>
-                      {size === s.id && <div style={{ position:"absolute", top:7, right:7, width:16, height:16, borderRadius:"50%", background:C.orange, color:C.white, display:"flex", alignItems:"center", justifyContent:"center", fontSize:9 }}>✓</div>}
+                      {size === s.id && <div style={{ position: "absolute", top: 7, right: 7, width: 16, height: 16, borderRadius: "50%", background: C.orange, color: C.white, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 9 }}>✓</div>}
                       <div style={{ fontFamily: font, fontSize: 12, fontWeight: 600, color: C.gray700, marginBottom: 3 }}>{s.label}</div>
                       <div style={{ fontFamily: fontDisplay, fontSize: 20, fontWeight: 800, color: C.orange }}>€{s.price.toLocaleString()}</div>
                     </button>
@@ -512,13 +512,13 @@ function Configurator() {
               {/* Step 2 */}
               <div style={{ marginBottom: 28 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
-                  <div style={{ width:26, height:26, borderRadius:"50%", background:C.orange, color:C.white, display:"flex", alignItems:"center", justifyContent:"center", fontFamily:font, fontSize:13, fontWeight:700 }}>2</div>
+                  <div style={{ width: 26, height: 26, borderRadius: "50%", background: C.orange, color: C.white, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: font, fontSize: 13, fontWeight: 700 }}>2</div>
                   <h3 style={{ fontFamily: fontDisplay, fontSize: 16, fontWeight: 700, color: C.gray900, margin: 0 }}>Select Control Type</h3>
                 </div>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
                   {[
-                    { id:"manual", icon:"🔧", label:"Manual Control", desc:"Simple crank operation, reliable and budget-friendly", cost:"Included" },
-                    { id:"motorized", icon:"⚡", label:"Motorized Control", desc:"One-touch operation with remote & smart home ready", cost:"+€650" },
+                    { id: "manual", icon: "🔧", label: "Manual Control", desc: "Simple crank operation, reliable and budget-friendly", cost: "Included" },
+                    { id: "motorized", icon: "⚡", label: "Motorized Control", desc: "One-touch operation with remote & smart home ready", cost: "+€650" },
                   ].map(c => (
                     <button key={c.id} onClick={() => setCtrl(c.id)} style={{
                       background: ctrl === c.id ? `${C.orange}08` : C.white,
@@ -537,7 +537,7 @@ function Configurator() {
               {/* Step 3 */}
               <div>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
-                  <div style={{ width:26, height:26, borderRadius:"50%", background:C.orange, color:C.white, display:"flex", alignItems:"center", justifyContent:"center", fontFamily:font, fontSize:13, fontWeight:700 }}>3</div>
+                  <div style={{ width: 26, height: 26, borderRadius: "50%", background: C.orange, color: C.white, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: font, fontSize: 13, fontWeight: 700 }}>3</div>
                   <h3 style={{ fontFamily: fontDisplay, fontSize: 16, fontWeight: 700, color: C.gray900, margin: 0 }}>Add Optional Upgrades</h3>
                 </div>
                 <button onClick={() => setZip(!zip)} style={{
@@ -547,18 +547,18 @@ function Configurator() {
                   display: "flex", alignItems: "flex-start", gap: 12, transition: "all 0.2s",
                 }}>
                   <div style={{
-                    width:20, height:20, borderRadius:5, marginTop:2,
+                    width: 20, height: 20, borderRadius: 5, marginTop: 2,
                     border: zip ? `2px solid ${C.orange}` : `2px solid ${C.gray300}`,
-                    background: zip ? C.orange : C.white, flexShrink:0,
-                    display:"flex", alignItems:"center", justifyContent:"center",
-                    color:C.white, fontSize:11, fontWeight:700,
+                    background: zip ? C.orange : C.white, flexShrink: 0,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    color: C.white, fontSize: 11, fontWeight: 700,
                   }}>{zip ? "✓" : ""}</div>
                   <div style={{ flex: 1 }}>
                     <div style={{ fontFamily: font, fontSize: 14, fontWeight: 700, color: C.gray900, marginBottom: 2 }}>🪟 Manual Zip Screen (Side)</div>
                     <div style={{ fontFamily: font, fontSize: 12, color: C.gray500, lineHeight: 1.4 }}>Add privacy and weather protection. Transform into a fully enclosed outdoor room.</div>
                     <div style={{ display: "flex", gap: 6, marginTop: 6 }}>
-                      {["Weather Protection","Privacy Control"].map(t => (
-                        <span key={t} style={{ background:C.gray50, border:`1px solid ${C.gray200}`, borderRadius:4, padding:"2px 7px", fontFamily:font, fontSize:10.5, color:C.gray400 }}>{t}</span>
+                      {["Weather Protection", "Privacy Control"].map(t => (
+                        <span key={t} style={{ background: C.gray50, border: `1px solid ${C.gray200}`, borderRadius: 4, padding: "2px 7px", fontFamily: font, fontSize: 10.5, color: C.gray400 }}>{t}</span>
                       ))}
                     </div>
                   </div>
@@ -573,36 +573,36 @@ function Configurator() {
             <div style={{ background: C.dark, borderRadius: 16, padding: 24, color: C.white, position: "sticky", top: 90 }}>
               <h3 style={{ fontFamily: fontDisplay, fontSize: 16, fontWeight: 700, margin: "0 0 18px", color: C.white }}>Your Configuration</h3>
               <div style={{ background: "rgba(255,255,255,0.06)", borderRadius: 10, padding: 12, marginBottom: 14 }}>
-                <div style={{ display:"flex", justifyContent:"space-between", fontFamily:font, fontSize:13, marginBottom:3 }}>
-                  <span style={{ color:"rgba(255,255,255,0.65)" }}>{cur.label}</span>
-                  <span style={{ fontWeight:600 }}>€{cur.price.toLocaleString()}</span>
+                <div style={{ display: "flex", justifyContent: "space-between", fontFamily: font, fontSize: 13, marginBottom: 3 }}>
+                  <span style={{ color: "rgba(255,255,255,0.65)" }}>{cur.label}</span>
+                  <span style={{ fontWeight: 600 }}>€{cur.price.toLocaleString()}</span>
                 </div>
-                <div style={{ fontFamily:font, fontSize:11, color:"rgba(255,255,255,0.35)" }}>Base pergola</div>
+                <div style={{ fontFamily: font, fontSize: 11, color: "rgba(255,255,255,0.35)" }}>Base pergola</div>
               </div>
-              {motorCost > 0 && <div style={{ display:"flex", justifyContent:"space-between", fontFamily:font, fontSize:13, color:"rgba(255,255,255,0.6)", marginBottom:6, padding:"0 4px" }}><span>Motorized Control</span><span>+€650</span></div>}
-              {zipCost > 0 && <div style={{ display:"flex", justifyContent:"space-between", fontFamily:font, fontSize:13, color:"rgba(255,255,255,0.6)", marginBottom:6, padding:"0 4px" }}><span>Zip Screen</span><span>+€690</span></div>}
-              <div style={{ borderTop:"1px solid rgba(255,255,255,0.08)", marginTop:10, paddingTop:12 }}>
-                <div style={{ display:"flex", justifyContent:"space-between", fontFamily:font, fontSize:13, color:"rgba(255,255,255,0.55)", marginBottom:6 }}><span>Subtotal</span><span>€{subtotal.toLocaleString()}</span></div>
-                <div style={{ fontFamily:font, fontSize:12, color:C.green, fontWeight:600, marginBottom:8 }}>✓ 15% Launch discount applied</div>
-                <div style={{ display:"flex", justifyContent:"space-between", fontFamily:fontDisplay, fontSize:26, fontWeight:800 }}><span>Total</span><span style={{ color:C.orange }}>€{subtotal.toLocaleString()}</span></div>
+              {motorCost > 0 && <div style={{ display: "flex", justifyContent: "space-between", fontFamily: font, fontSize: 13, color: "rgba(255,255,255,0.6)", marginBottom: 6, padding: "0 4px" }}><span>Motorized Control</span><span>+€650</span></div>}
+              {zipCost > 0 && <div style={{ display: "flex", justifyContent: "space-between", fontFamily: font, fontSize: 13, color: "rgba(255,255,255,0.6)", marginBottom: 6, padding: "0 4px" }}><span>Zip Screen</span><span>+€690</span></div>}
+              <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", marginTop: 10, paddingTop: 12 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", fontFamily: font, fontSize: 13, color: "rgba(255,255,255,0.55)", marginBottom: 6 }}><span>Subtotal</span><span>€{subtotal.toLocaleString()}</span></div>
+                <div style={{ fontFamily: font, fontSize: 12, color: C.green, fontWeight: 600, marginBottom: 8 }}>✓ 15% Launch discount applied</div>
+                <div style={{ display: "flex", justifyContent: "space-between", fontFamily: fontDisplay, fontSize: 26, fontWeight: 800 }}><span>Total</span><span style={{ color: C.orange }}>€{subtotal.toLocaleString()}</span></div>
               </div>
               <button style={{
-                width:"100%", padding:13, background:C.orange, border:"none",
-                borderRadius:10, marginTop:18, fontFamily:font, fontSize:14.5,
-                fontWeight:700, color:C.white, cursor:"pointer",
-                boxShadow:`0 4px 14px ${C.orange}40`, transition:"all 0.2s",
+                width: "100%", padding: 13, background: C.orange, border: "none",
+                borderRadius: 10, marginTop: 18, fontFamily: font, fontSize: 14.5,
+                fontWeight: 700, color: C.white, cursor: "pointer",
+                boxShadow: `0 4px 14px ${C.orange}40`, transition: "all 0.2s",
               }} onMouseEnter={e => e.target.style.background = C.orangeHover}
-                 onMouseLeave={e => e.target.style.background = C.orange}>🛒 Add to Cart</button>
+                onMouseLeave={e => e.target.style.background = C.orange}>🛒 Add to Cart</button>
               <div style={{ marginTop: 16 }}>
-                {["Free Shipping & Installation","5-Year Structural Warranty","Secure Checkout","German Design Quality"].map(t => (
-                  <div key={t} style={{ display:"flex", alignItems:"center", gap:7, fontFamily:font, fontSize:12, color:"rgba(255,255,255,0.45)", marginBottom:5 }}>
-                    <span style={{ color:C.green, fontSize:11 }}>✓</span>{t}
+                {["Free Shipping & Installation", "5-Year Structural Warranty", "Secure Checkout", "German Design Quality"].map(t => (
+                  <div key={t} style={{ display: "flex", alignItems: "center", gap: 7, fontFamily: font, fontSize: 12, color: "rgba(255,255,255,0.45)", marginBottom: 5 }}>
+                    <span style={{ color: C.green, fontSize: 11 }}>✓</span>{t}
                   </div>
                 ))}
               </div>
-              <div style={{ display:"flex", gap:8, marginTop:14, justifyContent:"center" }}>
-                {["VISA","MASTERCARD","KLARNA"].map(b => (
-                  <span key={b} style={{ background:"rgba(255,255,255,0.07)", border:"1px solid rgba(255,255,255,0.1)", borderRadius:6, padding:"3px 9px", fontFamily:font, fontSize:9.5, fontWeight:700, color:"rgba(255,255,255,0.35)", letterSpacing:"0.04em" }}>{b}</span>
+              <div style={{ display: "flex", gap: 8, marginTop: 14, justifyContent: "center" }}>
+                {["VISA", "MASTERCARD", "KLARNA"].map(b => (
+                  <span key={b} style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 6, padding: "3px 9px", fontFamily: font, fontSize: 9.5, fontWeight: 700, color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em" }}>{b}</span>
                 ))}
               </div>
             </div>
@@ -626,18 +626,18 @@ function Footer() {
               The intelligent outdoor solution with patented L-shaped pillar design. Get 15% more usable space.
             </p>
             <div style={{ display: "flex", gap: 8, marginBottom: 22 }}>
-              {["f","in","📸"].map((s,i) => (
-                <div key={i} style={{ width:30, height:30, borderRadius:7, background:"rgba(255,255,255,0.07)", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:font, fontSize:11, fontWeight:700, color:"rgba(255,255,255,0.4)", cursor:"pointer" }}>{s}</div>
+              {["f", "in", "📸"].map((s, i) => (
+                <div key={i} style={{ width: 30, height: 30, borderRadius: 7, background: "rgba(255,255,255,0.07)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: font, fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.4)", cursor: "pointer" }}>{s}</div>
               ))}
             </div>
             <div style={{ fontFamily: font, fontSize: 11, fontWeight: 700, color: C.white, textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: 10 }}>Why Choose Us</div>
             {[
-              { i:"🛡️", t:"5-Year Warranty", s:"Complete peace of mind" },
-              { i:"⚡", t:"Quick Installation", s:"Within a few weeks" },
-              { i:"🇩🇪", t:"German Design", s:"Precision engineering" },
+              { i: "🛡️", t: "5-Year Warranty", s: "Complete peace of mind" },
+              { i: "⚡", t: "Quick Installation", s: "Within a few weeks" },
+              { i: "🇩🇪", t: "German Design", s: "Precision engineering" },
             ].map(item => (
               <div key={item.t} style={{ display: "flex", alignItems: "center", gap: 9, marginBottom: 9 }}>
-                <div style={{ width:28, height:28, borderRadius:6, background:`${C.orange}15`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:13 }}>{item.i}</div>
+                <div style={{ width: 28, height: 28, borderRadius: 6, background: `${C.orange}15`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13 }}>{item.i}</div>
                 <div>
                   <div style={{ fontFamily: font, fontSize: 12.5, fontWeight: 600, color: C.white }}>{item.t}</div>
                   <div style={{ fontFamily: font, fontSize: 10.5, color: "rgba(255,255,255,0.35)" }}>{item.s}</div>
@@ -646,13 +646,13 @@ function Footer() {
             ))}
           </div>
           {[
-            { t:"Quick Links", links:["About Us","Shop by Size","Product Configurator","Gallery","Contact"] },
-            { t:"Customer Service", links:["Shipping & Delivery","Returns & Cancellations","Track My Order","Payment Methods","Help"] },
+            { t: "Quick Links", links: ["About Us", "Shop by Size", "Product Configurator", "Gallery", "Contact"] },
+            { t: "Customer Service", links: ["Shipping & Delivery", "Returns & Cancellations", "Track My Order", "Payment Methods", "Help"] },
           ].map(col => (
             <div key={col.t}>
               <div style={{ fontFamily: font, fontSize: 11, fontWeight: 700, color: C.white, textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: 14 }}>{col.t}</div>
               {col.links.map(l => (
-                <a key={l} href="#" style={{ display:"block", fontFamily:font, fontSize:13, color:"rgba(255,255,255,0.4)", textDecoration:"none", marginBottom:9, transition:"color 0.2s" }}
+                <a key={l} href="#" style={{ display: "block", fontFamily: font, fontSize: 13, color: "rgba(255,255,255,0.4)", textDecoration: "none", marginBottom: 9, transition: "color 0.2s" }}
                   onMouseEnter={e => e.target.style.color = C.orange}
                   onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.4)"}>{l}</a>
               ))}
@@ -661,12 +661,12 @@ function Footer() {
           <div>
             <div style={{ fontFamily: font, fontSize: 11, fontWeight: 700, color: C.white, textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: 14 }}>Contact Us</div>
             {[
-              { i:"📞", t:"+1 (888) 123-4567" },
-              { i:"✉️", t:"info@smartspacepergola.com" },
-              { i:"📍", t:"123 Design Street, Innovation City, IC 12345" },
+              { i: "📞", t: "+1 (888) 123-4567" },
+              { i: "✉️", t: "info@smartspacepergola.com" },
+              { i: "📍", t: "123 Design Street, Innovation City, IC 12345" },
             ].map(c => (
-              <div key={c.t} style={{ fontFamily:font, fontSize:13, color:"rgba(255,255,255,0.4)", marginBottom:9, display:"flex", alignItems:"flex-start", gap:6 }}>
-                <span style={{ fontSize:13 }}>{c.i}</span>{c.t}
+              <div key={c.t} style={{ fontFamily: font, fontSize: 13, color: "rgba(255,255,255,0.4)", marginBottom: 9, display: "flex", alignItems: "flex-start", gap: 6 }}>
+                <span style={{ fontSize: 13 }}>{c.i}</span>{c.t}
               </div>
             ))}
           </div>
@@ -677,8 +677,8 @@ function Footer() {
         }}>
           <span>© 2026 Smart Space Pergola by Palmiye. All rights reserved.</span>
           <div style={{ display: "flex", gap: 18 }}>
-            {["Privacy Policy","Terms of Service","Cookie Policy"].map(l => (
-              <a key={l} href="#" style={{ color:"rgba(255,255,255,0.25)", textDecoration:"none", transition:"color 0.2s" }}
+            {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(l => (
+              <a key={l} href="#" style={{ color: "rgba(255,255,255,0.25)", textDecoration: "none", transition: "color 0.2s" }}
                 onMouseEnter={e => e.target.style.color = "rgba(255,255,255,0.5)"}
                 onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.25)"}>{l}</a>
             ))}

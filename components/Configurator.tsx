@@ -22,10 +22,10 @@ export default function Configurator() {
   const curColor = colors.find((c) => c.id === color) || colors[0];
 
   const sizes = [
-    { id: "balcony", label: "Balcony Size (250×250 cm)", price: 2490 },
-    { id: "dining", label: "Dining Size (250×300 cm)", price: 3290 },
-    { id: "family", label: "Family Size (300×300 cm)", price: 3990 },
-    { id: "lounge", label: "Lounge Size (300×400 cm)", price: 4990 },
+    { id: "balcony", label: "Balcony Size (250×250 cm)", price: 1490 },
+    { id: "dining", label: "Dining Size (250×300 cm)", price: 1790 },
+    { id: "family", label: "Family Size (300×300 cm)", price: 2149 },
+    { id: "lounge", label: "Lounge Size (300×400 cm)", price: 2890 },
   ];
   const cur = sizes.find((s) => s.id === size) || sizes[2];
   const motorCost = ctrl === "motorized" ? 650 : 0;
