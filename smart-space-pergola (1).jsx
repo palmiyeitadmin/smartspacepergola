@@ -583,7 +583,7 @@ function Configurator() {
               {zipCost > 0 && <div style={{ display: "flex", justifyContent: "space-between", fontFamily: font, fontSize: 13, color: "rgba(255,255,255,0.6)", marginBottom: 6, padding: "0 4px" }}><span>Zip Screen</span><span>+€690</span></div>}
               <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", marginTop: 10, paddingTop: 12 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", fontFamily: font, fontSize: 13, color: "rgba(255,255,255,0.55)", marginBottom: 6 }}><span>Subtotal</span><span>€{subtotal.toLocaleString()}</span></div>
-                <div style={{ fontFamily: font, fontSize: 12, color: C.green, fontWeight: 600, marginBottom: 8 }}>✓ 15% Launch discount applied</div>
+                <div style={{ fontFamily: font, fontSize: 12, color: C.green, fontWeight: 600, marginBottom: 8 }}>✓ 30% Launch discount applied</div>
                 <div style={{ display: "flex", justifyContent: "space-between", fontFamily: fontDisplay, fontSize: 26, fontWeight: 800 }}><span>Total</span><span style={{ color: C.orange }}>€{subtotal.toLocaleString()}</span></div>
               </div>
               <button style={{
