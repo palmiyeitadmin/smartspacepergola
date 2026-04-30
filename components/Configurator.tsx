@@ -8,6 +8,7 @@ import { useCart } from "@/context/CartContext";
 
 export default function Configurator() {
   const [size, setSize] = useState("family");
+  const [subSize, setSubSize] = useState("300×300");
   const [color, setColor] = useState("black");
   const [ctrl, setCtrl] = useState("manual");
   const [zip, setZip] = useState(false);
@@ -21,16 +22,36 @@ export default function Configurator() {
   ];
   const curColor = colors.find((c) => c.id === color) || colors[0];
 
-  const sizes = [
-    { id: "balcony", label: "Balcony Size (250×250 cm)", price: 1490 },
-    { id: "dining", label: "Dining Size (250×300 cm)", price: 1790 },
-    { id: "family", label: "Family Size (300×300 cm)", price: 2149 },
-    { id: "lounge", label: "Lounge Size (300×400 cm)", price: 2890 },
-  ];
-  const cur = sizes.find((s) => s.id === size) || sizes[2];
+  const sizeOptions = {
+    dining: {
+      label: "Dining Size",
+      subSizes: [
+        { id: "250×250", label: "250×250 cm", price: 1490 },
+        { id: "250×300", label: "250×300 cm", price: 1790 },
+      ]
+    },
+    family: {
+      label: "Family Size",
+      subSizes: [
+        { id: "300×300", label: "300×300 cm", price: 2149 },
+        { id: "300×400", label: "300×400 cm", price: 2590 },
+      ]
+    },
+    lounge: {
+      label: "Lounge Size",
+      subSizes: [
+        { id: "300×500", label: "300×500 cm", price: 2890 },
+        { id: "400×500", label: "400×500 cm", price: 3390 },
+        { id: "400×600", label: "400×600 cm", price: 3890 },
+      ]
+    }
+  };
+
+  const currentSizeCategory = sizeOptions[size as keyof typeof sizeOptions];
+  const currentSubSize = currentSizeCategory.subSizes.find(s => s.id === subSize) || currentSizeCategory.subSizes[0];
   const motorCost = ctrl === "motorized" ? 650 : 0;
   const zipCost = zip ? 690 : 0;
-  const subtotal = cur.price + motorCost + zipCost;
+  const subtotal = currentSubSize.price + motorCost + zipCost;
 
   return (
     <section className="py-16 md:py-20 px-6 bg-white" id="configurator">
@@ -67,23 +88,44 @@ export default function Configurator() {
                 <div className="w-[26px] h-[26px] rounded-full bg-brand-orange text-white flex items-center justify-center font-sans text-[13px] font-bold">1</div>
                 <h3 className="font-display text-base font-bold text-gray-900 m-0">Choose Your Size</h3>
               </div>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {sizes.map(s => (
+              <div className="grid sm:grid-cols-3 gap-3 mb-3">
+                {Object.entries(sizeOptions).map(([key, value]) => (
                   <button
-                    key={s.id}
-                    onClick={() => setSize(s.id)}
-                    className={`relative rounded-xl p-3.5 text-left transition-all duration-200 border-2 ${size === s.id ? "bg-brand-orange/5 border-brand-orange" : "bg-white border-gray-200 hover:border-brand-orange/40"
+                    key={key}
+                    onClick={() => {
+                      setSize(key);
+                      setSubSize(value.subSizes[0].id);
+                    }}
+                    className={`relative rounded-xl p-3.5 text-center transition-all duration-200 border-2 ${size === key ? "bg-brand-orange/5 border-brand-orange" : "bg-white border-gray-200 hover:border-brand-orange/40"
                       }`}
                   >
-                    {size === s.id && (
+                    {size === key && (
                       <div className="absolute top-2.5 right-2.5 w-4 h-4 rounded-full bg-brand-orange text-white flex items-center justify-center">
                         <Check className="w-2.5 h-2.5" strokeWidth={3} />
                       </div>
                     )}
-                    <div className="font-sans text-xs font-semibold text-gray-700 mb-1">{s.label}</div>
-                    <div className="font-display text-xl font-extrabold text-brand-orange">€{s.price.toLocaleString()}</div>
+                    <div className="font-sans text-xs font-semibold text-gray-700 mb-1">{value.label}</div>
                   </button>
                 ))}
+              </div>
+              {/* Sub-size selection */}
+              <div className="bg-gray-100 rounded-lg p-3">
+                <div className="font-sans text-[11px] font-semibold text-gray-600 mb-2">Select dimensions:</div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  {currentSizeCategory.subSizes.map(s => (
+                    <button
+                      key={s.id}
+                      onClick={() => setSubSize(s.id)}
+                      className={`rounded-lg p-2.5 text-center transition-all duration-200 border ${subSize === s.id ? "bg-brand-orange/10 border-brand-orange" : "bg-white border-gray-200 hover:border-brand-orange/40"
+                        }`}
+                    >
+                      <div className="font-sans text-[11px] font-semibold text-gray-700 mb-0.5">{s.label}</div>
+                      <div className={`font-display text-sm font-bold ${subSize === s.id ? "text-brand-orange" : "text-gray-600"}`}>
+                        €{s.price.toLocaleString()}
+                      </div>
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -186,8 +228,8 @@ export default function Configurator() {
             <h3 className="font-display text-base font-bold mb-4.5">Your Configuration</h3>
             <div className="bg-white/5 rounded-lg border border-white/5 p-3 mb-3.5">
               <div className="flex justify-between font-sans text-[13px] mb-1">
-                <span className="text-white/65">{cur.label}</span>
-                <span className="font-semibold">€{cur.price.toLocaleString()}</span>
+                <span className="text-white/65">{currentSizeCategory.label} ({currentSubSize.label})</span>
+                <span className="font-semibold">€{currentSubSize.price.toLocaleString()}</span>
               </div>
               <div className="font-sans text-[11px] text-white/35">Base pergola · {curColor.label}</div>
             </div>
@@ -209,7 +251,7 @@ export default function Configurator() {
                 <span>€{subtotal.toLocaleString()}</span>
               </div>
               <div className="font-sans text-[12px] text-success font-semibold mb-2">
-                ✓ 15% Launch discount applied
+                ✓ 30% Launch discount applied
               </div>
               <div className="flex justify-between font-display text-[26px] font-extrabold items-end">
                 <span>Total</span>
@@ -221,7 +263,7 @@ export default function Configurator() {
               onClick={() => {
                 addItem({
                   id: "",
-                  size: cur.label,
+                  size: `${currentSizeCategory.label} (${currentSubSize.label})`,
                   color: curColor.label,
                   control: ctrl === "motorized" ? "Motorized" : "Manual",
                   zipScreen: zip,

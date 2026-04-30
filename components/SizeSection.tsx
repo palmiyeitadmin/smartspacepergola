@@ -5,10 +5,9 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 const products = [
-  { name: "Balcony Size", price: 1490, old: 2290, save: 800, dim: "250x250 cm", desc: "Perfect for small balconies and compact spaces", fits: ["Lounge chair", "Small coffee table", "Side plants"], pct: "Save 30%", image: "/images/balcony_1.jpg", bestSale: false },
-  { name: "Dining Size", price: 1790, old: 2750, save: 960, dim: "250×300 cm", desc: "Fits a 4-6 person outdoor dining room for family meals", fits: ["4-6 person dining table", "A shelf", "Side wall bench"], pct: "Save 30%", image: "/images/dining_1.jpg", bestSale: false },
-  { name: "Family Size", price: 2149, old: 3300, save: 1151, dim: "300×300 cm", desc: "The outdoor living room for the whole family", fits: ["Corner L-shaped sofa", "Coffee table", "Bookcase / cabinet"], pct: "Save 30%", image: "/images/family_1.jpeg", bestSale: true },
-  { name: "Lounge Size", price: 2890, old: 4450, save: 1560, dim: "300×400 cm", desc: "Premium full-size relaxation and entertainment space", fits: ["Lounge set", "Sunbed(s)", "Outdoor kitchen area"], pct: "Save 30%", image: "/images/lounge_1.png", bestSale: false },
+  { name: "Dining Size", price: 1490, old: 2290, save: 800, dim: "250×250 / 250×300 cm", desc: "Perfect for intimate dining spaces and balconies", fits: ["2-4 person dining table", "Side furniture", "Plant shelves"], pct: "Save 30%", image: "/images/dining_1.jpg", bestSale: false },
+  { name: "Family Size", price: 2149, old: 3300, save: 1151, dim: "300×300 / 300×400 cm", desc: "The outdoor living room for the whole family", fits: ["Corner L-shaped sofa", "Coffee table", "Bookcase / cabinet"], pct: "Save 30%", image: "/images/family_1.jpeg", bestSale: true },
+  { name: "Lounge Size", price: 2890, old: 4450, save: 1560, dim: "300×500 / 400×500 / 400×600 cm", desc: "Premium full-size relaxation and entertainment space", fits: ["Lounge set", "Sunbed(s)", "Outdoor kitchen area"], pct: "Save 30%", image: "/images/lounge_2.png", bestSale: false },
 ];
 
 type Product = {
@@ -26,11 +25,10 @@ type Product = {
 
 function SizeCard({ p }: { p: Product }) {
   return (
-    <div className={`group bg-white rounded-[14px] overflow-hidden border transition-all duration-300 hover:-translate-y-1 flex flex-col h-full text-left ${
-      p.bestSale
-        ? "border-brand-orange/40 shadow-[0_4px_20px_rgba(232,96,10,0.13)] hover:shadow-[0_12px_36px_rgba(232,96,10,0.18)] ring-1 ring-brand-orange/10"
-        : "border-gray-200 hover:border-brand-orange/35 hover:shadow-[0_12px_32px_rgba(0,0,0,0.07)] shadow-[0_1px_4px_rgba(0,0,0,0.03)]"
-    }`}>
+    <div className={`group bg-white rounded-[14px] overflow-hidden border transition-all duration-300 hover:-translate-y-1 flex flex-col h-full text-left ${p.bestSale
+      ? "border-brand-orange/40 shadow-[0_4px_20px_rgba(232,96,10,0.13)] hover:shadow-[0_12px_36px_rgba(232,96,10,0.18)] ring-1 ring-brand-orange/10"
+      : "border-gray-200 hover:border-brand-orange/35 hover:shadow-[0_12px_32px_rgba(0,0,0,0.07)] shadow-[0_1px_4px_rgba(0,0,0,0.03)]"
+      }`}>
       <div className="aspect-4/3 relative overflow-hidden">
         <Image
           src={p.image}
@@ -101,7 +99,7 @@ export default function SizeSection() {
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <div className="inline-flex items-center gap-1.5 bg-brand-orange-bg border border-brand-orange/20 rounded-full px-3.5 py-1 mb-3.5 font-sans text-[12.5px] font-semibold text-brand-orange">
-            📐 4 Space Solutions
+            📐 3 Space Solutions
           </div>
           <h2 className="font-display text-[clamp(1.7rem,2.8vw,2.2rem)] font-extrabold text-gray-900 mb-2.5 tracking-tight">
             Find Your <span className="text-brand-orange">Perfect Size</span>
@@ -111,7 +109,7 @@ export default function SizeSection() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-4.5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-4.5 max-w-5xl mx-auto">
           {products.map((p, i) => (
             <motion.div
               key={p.name}
